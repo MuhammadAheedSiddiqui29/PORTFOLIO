@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Muhammad Aheed Siddiqui - Frontend Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #000000;
+      background: #f4f7f6;
+      overflow-x: hidden;
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+  
+    /* Gradient color scheme */
+    .main-color {
+      color: #33bfcf;
+    }
+    .highlight-color {
+      color: #ff0075;
+    }
+  
+    /* Header Styles */
+    header {
+      background: #33bfcf;
+      color: #fff;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+  
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.2em;
+    }
+  
+    header a:hover {
+      color: #ff0075;
+      transition: color 0.3s;
+    }
+  
+    .navbar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    /* Section Styling */
+    section {
+      padding: 60px 20px;
+      min-height: 100vh;
+      text-align: center;
+      transition: padding 0.3s;
+    }
+  
+    section:nth-child(odd) {
+      background-color: #f4f7f6;
+    }
+  
+    section h2 {
+      color: #33bfcf;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+  
+    section p {
+      font-size: 1.1rem;
+      color: #7d848e;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+  
+    /* Hover Effects */
+    .service-card, .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+  
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+  
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  
+    /* Footer Styling */
+    footer {
+      background: #33bfcf;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+  
+    footer .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+  
+    footer .social-icons a:hover {
+      color: #ff0075;
+    }
+  
+    /* Loading Animation */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #33bfcf;
+    }
+  
+    .loading span {
+      font-size: 2rem;
+      color: #fff;
+      animation: spin 1.5s linear infinite;
+    }
+  
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  
+    /* Responsive Styling */
+    @media (max-width: 1200px) {
+      header {
+        padding: 15px 0;
+      }
+  
+      section h2 {
+        font-size: 2.2rem;
+      }
+  
+      section p {
+        font-size: 1rem;
+      }
+  
+      .service-card, .project-card {
+        margin: 10px;
+      }
+  
+      .navbar {
+        flex-direction: column;
+      }
+  
+      /* Adjust home section */
+      #home h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+  
+      #home p {
+        font-size: 1rem;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      section {
+        padding: 40px 20px; /* Reduced padding */
+      }
+  
+      section h2 {
+        font-size: 1.8rem;
+      }
+  
+      section p {
+        font-size: 0.9rem;
+      }
+  
+      .service-card, .project-card {
+        margin: 8px;
+      }
+  
+      .navbar {
+        flex-direction: column;
+      }
+  
+      .social-icons {
+        margin-top: 20px;
+      }
+  
+      /* Home Section fixes */
+      #home img {
+        height: 40vh;
+      }
+  
+      #home h2 {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+      }
+  
+      #home p {
+        font-size: 1rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      section {
+        padding: 30px 15px; /* Further reduce padding */
+      }
+  
+      section h2 {
+        font-size: 1.5rem;
+      }
+  
+      section p {
+        font-size: 0.8rem;
+      }
+  
+      header a {
+        font-size: 1.1em;
+        margin: 0 10px;
+      }
+  
+      .service-card, .project-card {
+        margin: 5px;
+        padding: 15px;
+      }
+  
+      /* Home Section fixes */
+      #home img {
+        height: 30vh;
+      }
+  
+      #home h2 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+      }
+  
+      #home p {
+        font-size: 0.9rem;
+      }
+    }
+  
+    /* Section specific styles */
+    #home img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+  
+    /* Contact Form Styling */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+  
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  
+    form button {
+      background-color: #33bfcf;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      transition: background 0.3s;
+    }
+  
+    form button:hover {
+      background-color: #ff0075;
+    }
+  </style>
+  
+</head>
+<body>
+
+<!-- Loading Animation -->
+<div class="loading" id="loadingScreen">
+  <span>Loading...</span>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+  <h2>Hello, I'm <span class="highlight-color">Muhammad Aheed Siddiqui</span></h2>
+  <p>I'm a passionate <span class="highlight-color">Frontend Developer</span> skilled in HTML, CSS, JavaScript, and creating beautiful and responsive websites.</p>
+  <img src="https://img.freepik.com/free-vector/young-prince-royal-attire_1308-176144.jpg?ga=GA1.1.230760449.1732648692&semt=ais_hybrid" alt="Muhammad Aheed Siddiqui" style="height: 50vh;">
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I specialize in building visually stunning and user-friendly websites. My goal is to create seamless experiences that engage users. With a keen eye for detail, I enjoy bringing creative concepts to life through code. I have a strong background in frontend technologies and a passion for learning new tools and frameworks.</p>
+  <p>I'm constantly improving my skills and keeping up with industry trends to deliver the best results. I aim to collaborate with other developers and designers to create web experiences that delight users.</p>
+  <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?ga=GA1.1.230760449.1732648692&semt=ais_hybrid" alt="">
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="service-card">
+    <h3>Web Design</h3>
+    <p>I design websites that are not only visually appealing but also user-centric and responsive across devices.</p>
+  </div>
+  <div class="service-card">
+    <h3>Web Development</h3>
+    <p>I build websites using modern technologies, focusing on performance, security, and functionality.</p>
+  </div>
+  <div class="service-card">
+    <h3>UI/UX Design</h3>
+    <p>I create intuitive and engaging user interfaces that provide exceptional experiences for your users.</p>
+  </div>
+  <div class="service-card">
+    <h3>SEO Optimization</h3>
+    <p>Optimizing websites for better search engine rankings, improving visibility, and driving organic traffic.</p>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="project-card">
+    <img src="/IMAGES/Screenshot 2024-12-19 204523.png" alt="Project 1">
+    <h3>AMAZON CLONE</h3>
+    <p>The AMAZON Clone is a replica of the popular e-commerce platform Amazon, created using HTML, CSS, and JavaScript. The project features a fully responsive design with a modern user interface, displaying product listings, a shopping cart, and a simple checkout process. It uses JavaScript for dynamic interactions, such as adding items to the cart, calculating totals, and providing an interactive user experience. This clone mimics the basic structure and functionalities of Amazon, showcasing web development skills in building an e-commerce platform with core frontend technologies.</p>
+  </div>
+  <div class="project-card">
+    <img src="/IMAGES/Screenshot 2024-12-19 204412.png" alt="Project 2">
+    <h3>UNIVERSITY PORTAL</h3>
+    <p>The University Portal is a web application designed to streamline communication and information access for students, faculty, and staff. Built with HTML, CSS, and JavaScript, this portal provides an intuitive user interface for managing academic resources, such as course schedules, grades, announcements, and event updates. The responsive design ensures accessibility across various devices, while JavaScript adds dynamic functionalities like interactive forms and real-time updates.</p>
+  </div>
+  <div class="project-card">
+    <img src="/IMAGES/Screenshot 2024-12-19 204446.png" alt="Project 2">
+    <h3>RESTRAUNT PORTAL</h3>
+    <p>This website is designed for a restaurant, showcasing its menu, ambiance, and services. It features a clean and modern layout using HTML and CSS, with interactive elements like a contact form and navigation. JavaScript is used for dynamic actions such as form validation and smooth scrolling. The site is fully responsive, ensuring a seamless experience across devices. Users can easily navigate through sections like "About Us," "Menu," "Contact," and "Reservation," providing a user-friendly interface for both customers and restaurant staff.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact</h2>
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Follow me on social media:</p>
+  <div class="social-icons">
+    <a href="#">Facebook</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // Hide the loading screen after content is loaded
+  window.onload = function() {
+    document.getElementById('loadingScreen').style.display = 'none';
+  };
+</script>
+
+</body>
+</html>
